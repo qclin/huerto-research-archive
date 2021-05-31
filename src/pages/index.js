@@ -6,7 +6,7 @@ import {groupByCategory} from "../utils/constants";
 const IndexPage = ({data}) => {
 
   const groupFields = groupByCategory(data.projects.edges)
-  console.log(groupFields)
+  
   return (
     <main >
       {Object.keys(groupFields).map((key, index) =>(
@@ -17,7 +17,6 @@ const IndexPage = ({data}) => {
     {Object.values(groupFields).map((fields, idx) => (
         <section key={`row.${idx}`}>
           {fields.map((field, index) => {
-            console.log(field.MEDIA?.data)
             return(
               <div key={`${field.IDENTIFIER}.${index}`}>
                 <p>{field.TITLE}</p>
