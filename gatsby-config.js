@@ -4,6 +4,8 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: "huerto-research-archive",
+    siteUrl: `https://keen-engelbart-f1d99e.netlify.app`,
+
   },
   plugins: [
     "gatsby-plugin-postcss",
@@ -52,6 +54,8 @@ module.exports = {
           },
         ]
       }
+    }, {
+
     }
   ],
 };
