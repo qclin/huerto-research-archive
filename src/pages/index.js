@@ -1,16 +1,16 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import {groupByCategory} from "../utils/constants"; 
+import {groupByCategory, CATEGORY} from "../utils/constants"; 
 
 
 const IndexPage = ({data}) => {
 
   const groupFields = groupByCategory(data.projects.edges)
-  
+
   return (
     <main >
-      {Object.keys(groupFields).map((key, index) =>(
-          <h1 key={key+index}> {key}</h1>
+      {CATEGORY.map((type) =>(
+          <h1 key={type}> {key}</h1>
         )
       )}
 
