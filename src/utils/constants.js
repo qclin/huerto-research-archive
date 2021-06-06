@@ -1,3 +1,5 @@
+import pickBy from "lodash/pickBy"
+import isEmpty from "lodash/isEmpty"
 export const CATEGORY = [
   "Figures",
   "Living",
@@ -18,5 +20,9 @@ export function groupByCategory(edges){
     })
   });
 
-  return obj
+  var cleanObj = pickBy(obj, function(value, key) {
+    return !isEmpty(value);
+  });
+
+  return cleanObj
 }

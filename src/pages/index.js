@@ -1,28 +1,27 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import {groupByCategory, CATEGORY} from "../utils/constants"; 
+import {groupByCategory} from "../utils/constants";
 
 
 const IndexPage = ({data}) => {
 
   const groupFields = groupByCategory(data.projects.edges)
-
   return (
-    <main >
-      {CATEGORY.map((type) =>(
-          <h1 key={type}> {key}</h1>
-        )
-      )}
-
-    {Object.values(groupFields).map((fields, idx) => (
-        <section key={`row.${idx}`}>
-          {fields.map((field, index) => {
+    <main  className="bg-paper">
+      <div className="uppercase w-32 sticky left-0 text-base font-bold px-4 border-r">ARCHIVE</div>
+    {Object.keys(groupFields).map((type, idx) => (
+      <dl key={`row.${idx}`} className="h-64 border-b flex flex-row w-screen overflow-x-scroll">
+          <dt key={type} className="border-r flex-shrink-0 w-32 sticky left-0 bg-eggwash" >
+            <div className="uppercase text-base px-4 border-b">
+              {type}
+            </div>
+          </dt>
+          {groupFields[type].map((field, index) => {
             return(
-              <div key={`${field.IDENTIFIER}.${index}`}>
-                <p>{field.TITLE}</p>
-                <span>{field.MEDIA_TYPE}</span>
+              <dd key={`${field.IDENTIFIER}.${index}`} className="border-r flex-shrink-0 w-80 hover:bg-melone">
+                <p className="border-b uppercase align-middle bg-eggwash text-base px-4 hover:bg-melone">{field.TITLE} <span className="float-right text-sm">{field.MEDIA_TYPE}</span></p>
                 {field.MEDIA && field.MEDIA[0].data &&
-                <div style={{width: 265, height: 200}}>
+                <div  className="h-100">
                   <iframe src={field.MEDIA[0].data?.URL}
                     width="100%"
                     height="100%"
@@ -35,11 +34,12 @@ const IndexPage = ({data}) => {
                   />
                 </div>
                 }
-              </div>
+              </dd>
             )}
           )}
-        </section>
+        </dl>
       ))}
+
     </main>
   )
 }
@@ -71,4 +71,3 @@ export const query = graphql`
     }
   }
 `
-
