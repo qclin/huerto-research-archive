@@ -2,9 +2,8 @@ import * as React from "react"
 
 
 function Block({field, media}){
-  console.log("block media", media)
   return(
-    <dd className="border-r flex-shrink-0 w-80 hover:bg-melone">
+    <dd className="border-r flex-shrink-0 hover:bg-melone">
       <p className="border-b uppercase align-middle bg-eggwash text-base px-4 hover:bg-melone">
         {field.TITLE}
         <span className="float-right text-sm">

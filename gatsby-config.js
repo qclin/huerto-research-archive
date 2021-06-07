@@ -31,10 +31,18 @@ module.exports = {
       __key: "pages",
     },
     {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/,
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-airtable`,
       options: {
         apiKey: process.env.AIRTABLE_API_KEY,
-        concurrency: 5, 
+        concurrency: 5,
         tables: [
           {
             baseId: process.env.AIRTABLE_BASE_ID,
