@@ -5,15 +5,15 @@ import { getColorScheme } from "../utils/helper";
 
 function Footer({isList, onToggleView, onNext}){
   const scheme = getColorScheme()
-  const sideButtonClasses = "border-l border-r py-4 focus:outline-none uppercase"
+  const sideButtonClasses = "py-4 focus:outline-none uppercase"
 
   return (
-    <footer className={clsx(scheme.lightBg, scheme.text, "w-screen fixed bottom-0 grid md:grid-cols-5  uppercase items-center text-xs text-center")}>
-      <button className={sideButtonClasses}
+    <footer className={clsx(scheme.lightBg, scheme.text, "w-screen fixed left-0 bottom-0 grid md:grid-cols-5  uppercase items-center text-xs text-center")}>
+      <button className={clsx(sideButtonClasses, "border-r")}
           onClick={onToggleView}>VIEW AS {isList ? 'plot': 'list'}
       </button>
       <div className="md:col-span-3">plot in dialogue: An Archive</div>
-      <button className={clsx(sideButtonClasses, "flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed")} onClick={onNext} disabled={isList}>
+      <button className={clsx(sideButtonClasses, "border-l flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed")} onClick={onNext} disabled={isList}>
         next plot <NextArrow className={clsx(scheme.text, "ml-2")}/>
       </button>
     </footer>

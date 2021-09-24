@@ -12,10 +12,14 @@ function GridView({groupedFields, images, current}) {
   <section className="grid grid-rows-3 grid-flow-col gap-4 overflow-y-hidden"
     style={{ height: 'calc(100vh - 4.5rem)'}}>
 
-    {selectedSet.map((item) => {
+    {selectedSet.map((item, index) => {
         const imageData = findImageData(images.nodes, item)
         return (
-          <Figure item={item} imageData={imageData} onSelect={() => setPreview({item, imageData})}/>
+          <Figure
+            item={item}
+            imageData={imageData}
+            onSelect={() => setPreview({item, imageData})}
+            key={`image.${item.IDENTIFIER}.${index}`}/>
         )
       }
     )}

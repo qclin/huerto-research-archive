@@ -43,8 +43,8 @@ export function findImageData(imageNodes, item){
 }
 
 export function getColorScheme(){
-  const timenow = getHours(new Date("2021-09-24T01:51:18.779Z"))
-  let timeOfDay = "morning";
+  const timenow = getHours(new Date())
+  let timeOfDay;
   if(inRange(timenow, 0, 6)){
     timeOfDay = "dawn"
   }else if(inRange(timenow, 6, 12)){
@@ -54,6 +54,8 @@ export function getColorScheme(){
   }else if(inRange(timenow, 18, 24)) {
     timeOfDay = "night"
   }
+
+  console.log(" time of day --- ", timeOfDay)
 
   return colorScheme[timeOfDay]
 }
