@@ -1,18 +1,17 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { groupByCategory } from "../utils/constants";
+import { groupByCategory } from "../utils/group-by-categories";
 import Row from "../component/row";
 
 const IndexPage = ({data}) => {
 
-
   const groupFields = groupByCategory(data.projects.edges)
   return (
     <main  className="bg-paper">
-      <div className="uppercase w-32 sticky left-0 text-base font-bold px-4 border-r">ARCHIVE</div>
-      {Object.keys(groupFields).map((type, idx) => (
+      {/* <div className="uppercase w-32 sticky left-0 text-base font-bold px-4 border-r">ARCHIVE</div> */}
+      {/* {Object.keys(groupFields).map((type, idx) => (
         <Row fields={groupFields[type]} type={type} key={`${idx}.${type}`}/>
-      ))}
+      ))} */}
     </main>
   )
 }
@@ -38,6 +37,18 @@ export const query = graphql`
                   IDENTIFIER
                 }
               }
+          }
+        }
+      }
+    }
+    images: allS3ImageAsset {
+      nodes {
+        Key
+        childImageSharp {
+          fluid {
+            src
+            srcSet
+            aspectRatio
           }
         }
       }
