@@ -1,30 +1,24 @@
-import * as React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
-import { groupByCategory, selectSome  } from "../utils/helper";
-import Row from "../component/row";
-import Figure from "../component/figure";
+import { groupByCategory  } from "../utils/helper";
 import Layout  from "../component/layout";
+import ListView from "../component/listView";
+import GridView from "../component/gridView";
+import Footer from "../component/footer";
 
-
-const IndexPage = ({data}) => {
+function IndexPage({data}){
 
   const groupedFields = groupByCategory(data.projects.edges)
-
-  const selectedSet = selectSome(groupedFields)
-
-  console.log(" selectedSet ", selectedSet)
+  const [showList, setShowList] = useState(false)
+  const [current, setCurrent] = useState(0)
 
   return (
     <Layout>
-      <section className="h-screen grid grid-rows-3 grid-flow-col gap-4">
-        {selectedSet.map((item) =>
-          <Figure item={item} images={data.images}/>)
-        }
-      </section>
-      {/* <div className="uppercase w-32 sticky left-0 text-base font-bold px-4 border-r">ARCHIVE</div> */}
-      {/* {Object.keys(groupFields).map((type, idx) => (
-        <Row fields={groupFields[type]} type={type} key={`${idx}.${type}`}/>
-      ))} */}
+      {
+        showList ? <ListView groupedFields={groupedFields}/> :
+        <GridView groupedFields={groupedFields} images={data.images} current={current}/>
+      }
+      <Footer onToggleView={() => setShowList(!showList)} isList={showList} onNext={() => setCurrent(current + 1)}/>
     </Layout>
   )
 }
@@ -58,7 +52,9 @@ export const query = graphql`
       nodes {
         Key
         childImageSharp {
-          gatsbyImageData(placeholder: BLURRED)
+          gatsbyImageData(
+            placeholder: BLURRED
+          )
         }
       }
     }

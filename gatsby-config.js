@@ -77,7 +77,7 @@ module.exports = {
         },
       },
     },
+    sourceS3,
     sourceAirTable,
-    sourceS3
   ],
 };

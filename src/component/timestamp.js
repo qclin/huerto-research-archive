@@ -1,6 +1,7 @@
 import React from "react";
 import { format, utcToZonedTime } from "date-fns-tz";
 import enGB from "date-fns/locale/en-GB";
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 
 function Timestamp(){
@@ -14,11 +15,12 @@ function Timestamp(){
     locale: enGB,
   });
 
+  const timeToFallEquinox = formatDistanceToNow(new Date("2021-09-22"))
 
   return (
-    <div className="uppercase sticky right-0 px-4 border-r">
-      {localTimeString}
-    </div>
+    <span className="uppercase fixed right-6 px-4 py-2 m-3 border-r text-base bg-white rounded-full">
+      {localTimeString},  {timeToFallEquinox} sinced fall equinox
+    </span>
 
   )
 }

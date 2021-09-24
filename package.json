@@ -17,6 +17,9 @@
   "dependencies": {
     "autoprefixer": "^10.2.6",
     "chance": "^1.1.8",
+    "clsx": "^1.1.1",
+    "date-fns": "^2.24.0",
+    "date-fns-tz": "^1.1.6",
     "dotenv": "^10.0.0",
     "gatsby": "^3.4.1",
     "gatsby-plugin-image": "^1.6.0",
@@ -34,6 +37,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-modal": "^3.14.3",
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
     "tailwindcss": "^2.1.4"

@@ -31,7 +31,7 @@ export function selectSome(categoryList){
   const theRestSet = flatten(Object.values(omit(categoryList, livingKey))).filter((obj) => !obj.CATEGORY.includes(livingKey))
 
   const living3 = chance.pickset(livingSet, 3)
-  const rest5 = chance.pickset(shuffle(theRestSet), 5)
+  const rest5 = chance.pickset(shuffle(theRestSet), 6)
 
   return  shuffle([...living3, ...rest5])
 }
