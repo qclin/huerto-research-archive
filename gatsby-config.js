@@ -1,5 +1,34 @@
 require("dotenv").config()
 
+const sourceS3 = {
+  resolve: "gatsby-source-s3-image",
+  options: {
+    accessKeyId: process.env.S3_ACCESS_KEY_ID,
+    secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+    bucketName: process.env.S3_BUCKET_NAME,
+    region: process.env.S3_REGION,
+    protocol: process.env.S3_PROTOCOL,
+  },
+}
+
+const sourceAirTable = {
+  resolve: `gatsby-source-airtable`,
+  options: {
+    apiKey: process.env.AIRTABLE_API_KEY,
+    concurrency: 5,
+    tables: [
+      {
+        baseId: process.env.AIRTABLE_BASE_ID,
+        tableName: `BODY`,
+        tableLinks: [`MEDIA`]
+      },
+      {
+        baseId: process.env.AIRTABLE_BASE_ID,
+        tableName: `MEDIA`,
+      },
+    ]
+  }
+}
 
 module.exports = {
   siteMetadata: {
@@ -38,23 +67,7 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-source-airtable`,
-      options: {
-        apiKey: process.env.AIRTABLE_API_KEY,
-        concurrency: 5,
-        tables: [
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `BODY`,
-            tableLinks: [`MEDIA`]
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `MEDIA`,
-          },
-        ]
-      }
-    }
+    sourceAirTable,
+    sourceS3
   ],
 };
