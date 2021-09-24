@@ -34,6 +34,16 @@ module.exports = {
   siteMetadata: {
     title: "huerto-research-archive",
     siteUrl: "https://keen-engelbart-f1d99e.netlify.app",
+    description: "",
+    author: "Studio Hold",
+    authorLink: "https://theholding.page/",
+    openGraph: {
+      title: "",
+      description:
+        "",
+      url: "",
+      image: "",
+    },
   },
   plugins: [
     "gatsby-plugin-postcss",
