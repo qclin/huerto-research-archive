@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="63px" height="9px" viewBox="0 0 63 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="back-arrow-white" transform="translate(31.500000, 4.500000) scale(-1, -1) translate(-31.500000, -4.500000) " fill="#000000" fill-rule="nonzero">
+        <g id="back-arrow-white" transform="translate(31.500000, 4.500000) scale(-1, -1) translate(-31.500000, -4.500000) " fill="currentColor" fill-rule="nonzero">
             <polygon id="Path" points="9 0 9 4 63 4 63 5 9 5 9 9 0 4.5"></polygon>
         </g>
     </g>

@@ -11,7 +11,7 @@ function ListView({groupedFields}){
         <span className="pl-2">({fields.length})</span>
       </dt>
       {fields.map((field, index) => (
-        <dd key={field.idx} className="grid grid-flow-col auto-cols-fr text-left px-2 hover:bg-white hover:bg-opacity-75">
+        <dd key={field.idx} className="grid grid-flow-col auto-cols-fr text-left px-2 hover:bg-white hover:bg-opacity-25">
           <span>#{index}</span>
           <span>{field.MEDIA_TYPE}</span>
           <span>{field.YEAR ? field.YEAR : "unknown"}</span>

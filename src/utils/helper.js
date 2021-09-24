@@ -1,5 +1,7 @@
 import Chance from "chance"
-import {omit, flatten, shuffle} from "lodash";
+import { getHours } from "date-fns";
+import {omit, flatten, shuffle, inRange} from "lodash";
+import colorScheme from "./colors";
 
 const chance = new Chance();
 
@@ -38,4 +40,20 @@ export function selectSome(categoryList){
 
 export function findImageData(imageNodes, item){
   return imageNodes.find(node => node.Key.includes(item.IDENTIFIER))
+}
+
+export function getColorScheme(){
+  const timenow = getHours(new Date("2021-09-24T01:51:18.779Z"))
+  let timeOfDay = "morning";
+  if(inRange(timenow, 0, 6)){
+    timeOfDay = "dawn"
+  }else if(inRange(timenow, 6, 12)){
+    timeOfDay = "morning"
+  }else if(inRange(timenow, 12, 18)){
+    timeOfDay = "afternoon"
+  }else if(inRange(timenow, 18, 24)) {
+    timeOfDay = "night"
+  }
+
+  return colorScheme[timeOfDay]
 }

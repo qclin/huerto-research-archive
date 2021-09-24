@@ -9,14 +9,16 @@ function GridView({groupedFields, images, current}) {
   const [preview, setPreview] = useState()
 
   return (
-    <section className="h-screen grid grid-rows-3 grid-flow-col gap-4">
-    {selectedSet.map((item) => {
-      const imageData = findImageData(images.nodes, item)
-      return (
-        <Figure item={item} imageData={imageData} onSelect={() => setPreview({item, imageData})}/>
-      )
-    })}
+  <section className="grid grid-rows-3 grid-flow-col gap-4 overflow-y-hidden"
+    style={{ height: 'calc(100vh - 4.5rem)'}}>
 
+    {selectedSet.map((item) => {
+        const imageData = findImageData(images.nodes, item)
+        return (
+          <Figure item={item} imageData={imageData} onSelect={() => setPreview({item, imageData})}/>
+        )
+      }
+    )}
     <PreviewModal preview={preview} onClose={() => setPreview(null)}></PreviewModal>
   </section>
   )

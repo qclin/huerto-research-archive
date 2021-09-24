@@ -6,7 +6,38 @@ module.exports = {
       colors:{
         paper: "#ebe9e3",
         eggwash: "#fffbe8",
-        melone:" #cfffe3CC"
+        melone:" #cfffe3CC",
+        time:{
+          dawn:{
+            bg: {
+              DEFAULT: "#3d3b4d",
+              light: "#4b4851"
+            },
+            border: "#b9b9b9",
+            text: "#dcdcdc"
+          },
+          morning:{
+            bg: {
+              DEFAULT: "#e2e2e2",
+              light: "#ffffff"
+            },
+            border: "#b9b9b9",
+          },
+          afternoon:{
+            bg: {
+              DEFAULT: "#bab9be",
+              light: "#f2f1f2"
+            },
+            border: "#b9b9b9",
+          },
+          night:{
+            bg: {
+              DEFAULT: "#75747f",
+              light: "#8f8d93"
+            },
+            border: "#b9b9b9"
+          }
+        }
       },
       fontSize: {
         sm: "0.531rem",
