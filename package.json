@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.2.6",
+    "chance": "^1.1.8",
     "dotenv": "^10.0.0",
     "gatsby": "^3.4.1",
     "gatsby-plugin-image": "^1.6.0",
