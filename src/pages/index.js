@@ -4,6 +4,8 @@ import { groupByCategory, selectSome  } from "../utils/helper";
 import Row from "../component/row";
 import Figure from "../component/figure";
 import Layout  from "../component/layout";
+
+
 const IndexPage = ({data}) => {
 
   const groupedFields = groupByCategory(data.projects.edges)

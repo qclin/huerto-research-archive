@@ -8,10 +8,10 @@ import { findImageData } from "../utils/helper";
   const imageData = findImageData(images.nodes, item)
   const image = getImage(imageData)
   return (
-  <figure key={`${item.CATEGORY}.${item.IDENTIFIER}`}>
-    {imageData && <GatsbyImage image={image} alt={item.TITLE} className="h-auto"/>}
-    <figcaption>{item.TITLE}</figcaption>
-  </figure>
+    <figure key={`${item.CATEGORY}.${item.IDENTIFIER}`}>
+      {imageData && <GatsbyImage image={image} alt={item.TITLE} className="h-auto"/>}
+      <figcaption>{item.TITLE}</figcaption>
+    </figure>
 )
 
 }
