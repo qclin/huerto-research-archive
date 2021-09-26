@@ -15,16 +15,17 @@ function GridView({groupedFields, images, current}) {
   const rowAlign = ["justify-end", "justify-center", "justify-start"]
 
   const Placeholder = ({item}) => {
-    const sizes = ["w-1/6 h-100", "w-1/4 h-50"]
+    const sizes = ["w-1/6 h-72", "w-1/4 h-48"]
     return <div className={clsx(chance.pickone(sizes), "bg-docYellow text-center justify-center items-center mx-2 shadow-md")}><span>{item.IDENTIFIER}</span></div>
   }
+
   return (
   <section
-    className="max-w-7xl mx-auto overflow-y-hidden"
+    className="max-w-7xl mx-auto overflow-y-hidden py-4"
     style={{ height: 'calc(100vh - 4.5rem)'}}>
     {groupedSet.map((list, listIndex) => (
 
-      <div key={listIndex} className={clsx(rowAlign[listIndex], "flex h-1/3 mb-3")}>
+      <div key={listIndex} className={clsx(rowAlign[listIndex], "flex h-1/3 mb-3 items-center")}>
       {list.map((item, index) => {
           const imageData = findImageData(images.nodes, item)
           if(!imageData) return  <Placeholder item={item}/>
