@@ -55,6 +55,10 @@ export const query = graphql`
           gatsbyImageData(
             placeholder: BLURRED
           )
+          original {
+            height
+            width
+          }
         }
       }
     }

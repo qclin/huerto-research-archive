@@ -19,7 +19,7 @@ function Layout ({
       <Timestamp/>
       <main className={clsx(scheme.lightBg, "p-6")}>
         <div className={clsx(scheme.lightBg, scheme.border, "h-6 w-screen border-b fixed top-0 left-0") }></div>
-        <section className={clsx(scheme.bg, scheme.border, "border")}>{children}</section>
+        <section className={clsx(scheme.bg, scheme.border, "border border-t-0")}>{children}</section>
       </main>
     </>
   )

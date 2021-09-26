@@ -55,7 +55,5 @@ export function getColorScheme(){
     timeOfDay = "night"
   }
 
-  console.log(" time of day --- ", timeOfDay)
-
   return colorScheme[timeOfDay]
 }

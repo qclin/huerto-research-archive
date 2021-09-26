@@ -4,15 +4,13 @@ import { getColorScheme } from "../utils/helper";
 import clsx from "clsx";
 
 
-function Figure({item, imageData, onSelect}){
+function Figure({item, imageData, onSelect, ...rest}){
   const image = getImage(imageData)
-  const scheme = getColorScheme()
-
   return (
-    <button onClick={onSelect}>
-    <figure key={`${item.CATEGORY}.${item.IDENTIFIER}`}>
-      {imageData && <GatsbyImage image={image} alt={item.TITLE} className="h-auto"/>}
-      <figcaption className={clsx(scheme.text)}>{item.TITLE}</figcaption>
+    <button onClick={onSelect} {...rest}>
+    <figure key={`${item.CATEGORY}.${item.IDENTIFIER}`} className="w-full shadow-md">
+      <GatsbyImage image={image} alt={item.TITLE}/>
+      <figcaption className="sr-only">{item.TITLE}</figcaption>
     </figure>
     </button>
   )

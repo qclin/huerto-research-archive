@@ -7,6 +7,7 @@ module.exports = {
         paper: "#ebe9e3",
         eggwash: "#fffbe8",
         melone:" #cfffe3CC",
+        docYellow:"#fffbe8",
         time:{
           dawn:{
             bg: {
