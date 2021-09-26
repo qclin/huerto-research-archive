@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { groupByCategory  } from "../utils/helper";
 import Layout  from "../component/layout";
 import ListView from "../component/listView";
-import GridView from "../component/gridView";
+import PlotView from "../component/plotView";
 import Footer from "../component/footer";
 
 function IndexPage({data}){
@@ -16,7 +16,7 @@ function IndexPage({data}){
     <Layout>
       {
         showList ? <ListView groupedFields={groupedFields}/> :
-        <GridView groupedFields={groupedFields} images={data.images} current={current}/>
+        <PlotView groupedFields={groupedFields} images={data.images} current={current}/>
       }
       <Footer onToggleView={() => setShowList(!showList)} isList={showList} onNext={() => setCurrent(current + 1)}/>
     </Layout>

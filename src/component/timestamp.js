@@ -2,7 +2,7 @@ import React from "react";
 import { format, utcToZonedTime } from "date-fns-tz";
 import enGB from "date-fns/locale/en-GB";
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
-
+import Pill from "./pill";
 
 function Timestamp(){
   const datetimeFormat = Intl.DateTimeFormat().resolvedOptions();
@@ -18,9 +18,9 @@ function Timestamp(){
   const timeToFallEquinox = formatDistanceToNow(new Date("2021-09-22"))
 
   return (
-    <span className="uppercase fixed right-6 px-4 py-2 mt-10 m-3 border-r text-base bg-white rounded-full">
+    <Pill className="uppercase fixed right-6 mt-10 m-3 border-r">
       {localTimeString},  {timeToFallEquinox} sinced fall equinox
-    </span>
+    </Pill>
 
   )
 }

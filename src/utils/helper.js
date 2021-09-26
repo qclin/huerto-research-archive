@@ -38,6 +38,15 @@ export function selectSome(categoryList){
   return  shuffle([...living3, ...rest5])
 }
 
+export function countOccurences(selectedSet){
+  return selectedSet.reduce((r, a) => {
+    a.CATEGORY.map((category) => {
+      r[category] = (r[category] || 0) + 1;
+    })
+    return r;
+  }, {});
+}
+
 export function findImageData(imageNodes, item){
   return imageNodes.find(node => node.Key.includes(item.IDENTIFIER))
 }
