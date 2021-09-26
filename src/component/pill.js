@@ -2,8 +2,9 @@
 import React from "react";
 import clsx from "clsx";
 
-function Pill({className, children}){
-  return <span className={clsx(className, "text-base bg-white rounded-full px-4 py-2")}>
+function Pill({className, children, ...rest}){
+  return <span {...rest}
+    className={clsx( "text-base bg-white rounded-full px-4 py-2", className)}>
     {children}
   </span>
 }
