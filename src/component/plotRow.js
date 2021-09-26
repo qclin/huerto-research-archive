@@ -9,13 +9,13 @@ function PlotRow({items, className, images, setPreview, selectedCategory}){
   const sizes = ["w-1/5 h-72", "w-1/4 h-60"]
 
   const Placeholder = ({item, index}) => (
-    <div className={clsx(sizes[index % 2 ], "bg-eggwash text-center justify-center items-center mx-2 shadow-md")}>
+    <div className={clsx(sizes[index % 2 ], "bg-eggwash text-center justify-center items-center mx-2 shadow-lg")}>
       <span>{item.IDENTIFIER}</span>
     </div>
   )
 
   return (
-    <div className={clsx(className, "flex max-h-72 mb-3 items-center")}>
+    <div className={clsx(className, "flex max-h-1/3 mb-3 items-center")}>
       {items.map((item, index) => {
           const imageData = findImageData(images.nodes, item)
           if(!imageData) return  <Placeholder item={item} index={index}/>

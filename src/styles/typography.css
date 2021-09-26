@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Porpora-Regular";
+  src: url("./fonts/Porpora-Regular.otf");
+}
+
+@font-face {
+  font-family: "SangBleuBP-Light";
+  src: url("./fonts/SangBleuBP-Light.otf");
+}
+
+body{
+  font-family: "Porpora-Regular", san-serif;
+}
+
+h1{
+  font-family: "SangBleuBP-Light", serif;
+}

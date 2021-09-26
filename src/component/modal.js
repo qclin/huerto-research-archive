@@ -35,8 +35,7 @@ function PreviewModal({ preview, onClose }) {
       >
         <span className="text-3xl font-light">X</span>
       </button> */}
-      <Pill className={clsx(topPillClass, "left-8")}>item {}</Pill>
-      <Pill className={clsx(topPillClass, "right-8")}>{CATEGORY.join(' - ')}</Pill>
+      <Pill className={clsx(topPillClass, "left-8")}>{CATEGORY.join(' - ')}</Pill>
       {preview && (
         <figure key={`${CATEGORY}.${IDENTIFIER}`}>
           {image && <GatsbyImage image={image} alt={TITLE} className="max-w-screen-md w-full mx-auto h-auto"/>}

@@ -15,9 +15,9 @@ function ListView({groupedFields}){
       </dt>
       {fields.map((field, index) => (
         <dd key={field.IDENTIFIER} className={clsx(scheme.text, "grid grid-flow-col auto-cols-fr text-left px-2 hover:bg-white hover:bg-opacity-25")}>
-          <span>#{index}</span>
+          <span>#{index+1}</span>
           <span>{field.MEDIA_TYPE}</span>
-          <span>{field.YEAR ? field.YEAR : "unknown"}</span>
+          <span>{field.YEAR ? field.YEAR : "     "}</span>
           <span className="col-span-3">{field.TITLE}</span>
         </dd>
       ))}
