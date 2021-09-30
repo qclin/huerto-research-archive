@@ -3,6 +3,7 @@ import * as React from "react"
 import { getColorScheme } from "../utils/helper";
 
 function ListView({groupedFields}){
+
   const scheme = getColorScheme()
 
   return(

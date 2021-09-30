@@ -52,7 +52,9 @@ export function findImageData(imageNodes, item){
 }
 
 export function getColorScheme(){
-  const timenow = getHours(new Date())
+  const now = new Date();
+  const timenow = getHours(now)
+
   let timeOfDay;
   if(inRange(timenow, 0, 6)){
     timeOfDay = "dawn"

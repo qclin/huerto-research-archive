@@ -11,15 +11,15 @@ const colorScheme = {
     border: "border-time-morning-border",
   },
   afternoon: {
-    bg: "bg-time-morning-bg",
-    lightBg: "bg-time-morning-bg-light",
-    border: "border-time-morning-border",
-    text: "text-white",
+    bg: "bg-time-afternoon-bg",
+    lightBg: "bg-time-afternoon-bg-light",
+    border: "border-time-afternoon-border",
   },
   night: {
-    bg: "bg-time-morning-bg",
-    lightBg: "bg-time-morning-bg-light",
-    border: "border-time-morning-border"
+    bg: "bg-time-night-bg",
+    lightBg: "bg-time-night-bg-light",
+    border: "border-time-night-border",
+    text: "text-white",
   }
 }
 

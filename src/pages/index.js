@@ -1,66 +1,24 @@
-import React, { useState } from "react"
-import { graphql } from "gatsby"
-import { groupByCategory  } from "../utils/helper";
-import Layout  from "../component/layout";
-import ListView from "../component/listView";
-import PlotView from "../component/plotView";
-import Footer from "../component/footer";
+import React  from "react"
+import {  Link } from "gatsby"
 
-function IndexPage({data}){
+import { Corners } from "../component/corners"
+import { getColorScheme } from "../utils/helper";
+import clsx from "clsx";
 
-  const groupedFields = groupByCategory(data.projects.edges)
-  const [showList, setShowList] = useState(false)
-  const [current, setCurrent] = useState(0)
+function IndexPage(){
+  const scheme = getColorScheme()
 
   return (
-    <Layout>
-      {
-        showList ? <ListView groupedFields={groupedFields}/> :
-        <PlotView groupedFields={groupedFields} images={data.images} current={current}/>
-      }
-      <Footer onToggleView={() => setShowList(!showList)} isList={showList} onNext={() => setCurrent(current + 1)}/>
-    </Layout>
+    <div className={clsx(scheme.lightBg, "p-6 h-screen")}>
+      <Corners showBottom/>
+      <div className={clsx(scheme.border, "bg-eggwash h-full flex justify-center items-center border")}>
+        <div className="text-center">
+        <h1 className="text-5xl uppercase mb-4">Plot in Dialogue: An Archive </h1>
+        <Link className="uppercase" to="/garden">Enter the Garden</Link>
+        </div>
+      </div>
+    </div>
   )
 }
 
 export default IndexPage
-
-export const query = graphql`
-  query {
-    projects: allAirtable(filter: {table: {eq: "BODY"}}) {
-      edges {
-        node {
-          id
-          data {
-            CATEGORY
-            IDENTIFIER
-            MEDIA_TYPE
-            TITLE
-            YEAR
-            MEDIA {
-                data {
-                  URL
-                  Title
-                  IDENTIFIER
-                }
-              }
-          }
-        }
-      }
-    }
-    images: allS3ImageAsset {
-      nodes {
-        Key
-        childImageSharp {
-          gatsbyImageData(
-            placeholder: BLURRED
-          )
-          original {
-            height
-            width
-          }
-        }
-      }
-    }
-  }
-`

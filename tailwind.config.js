@@ -40,6 +40,10 @@ module.exports = {
           }
         }
       },
+      fontFamily: {
+        sans: ["Porpora-Regular", "sans-serif"],
+        head: ["SangBleuBP-Light", "sans-serif"],
+      },
       fontSize: {
         sm: "0.531rem",
         base: "0.75rem"
