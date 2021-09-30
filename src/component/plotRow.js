@@ -18,7 +18,7 @@ function PlotRow({items, className, images, setPreview, selectedCategory}){
     <div className={clsx(className, "flex md:max-h-60 2xl:max-h-80 mb-3 items-center")}>
       {items.map((item, index) => {
           const imageData = findImageData(images.nodes, item)
-          if(!imageData) return  <Placeholder item={item} index={index}/>
+          if(!imageData) return  <Placeholder key={`placeholder-${index}`} item={item} index={index}/>
 
           const { height, width } = imageData?.childImageSharp?.original
           const aspectRatio = width/height
