@@ -10,7 +10,10 @@ function Figure({item, imageData, onSelect, isFocus, ...rest}){
     <figure key={`${item.CATEGORY}.${item.IDENTIFIER}`} className="shadow-md relative">
       <GatsbyImage image={image} alt={item.TITLE}/>
       <figcaption className="sr-only">{item.TITLE}</figcaption>
-      {isFocus && <Pill className="absolute z-20 inset-1/2 transform -translate-x-1/2 -translate-y-1/2 w-max h-8">{item.IDENTIFIER}</Pill> }
+      {isFocus && <Pill className="
+      absolute z-20 inset-1/2 w-32 h-8 shadow
+      transform -translate-x-1/2 -translate-y-1/2
+      whitespace-nowrap overflow-ellipsis overflow-hidden">{item.TITLE}</Pill> }
     </figure>
     </button>
   )

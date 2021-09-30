@@ -15,7 +15,7 @@ function PlotSummary({className, selectedSet, selectedCategory, setSelectedCateg
             className={clsx(selectedCategory === key && "bg-yellow", "block w-min whitespace-nowrap uppercase mb-2")}
             onMouseEnter={() => setSelectedCategory(key)}
             onMouseLeave={() => setSelectedCategory(null)}
-          >{key} ({value})</Pill>
+          >{key.replace(/-/g, " ")} ({value})</Pill>
 
       ))}
     </ul>

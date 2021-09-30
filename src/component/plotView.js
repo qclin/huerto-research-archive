@@ -22,7 +22,7 @@ function PlotView({groupedFields, images, current}) {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
-      <section className="max-w-7xl mx-auto ">
+      <section className="max-w-screen-lg 2xl:max-w-screen-xl mx-auto h-full">
         {groupedSet.map((list, listIndex) => (
           <PlotRow key={`row.${listIndex}`}
             items={list}

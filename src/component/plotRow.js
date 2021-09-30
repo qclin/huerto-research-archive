@@ -15,7 +15,7 @@ function PlotRow({items, className, images, setPreview, selectedCategory}){
   )
 
   return (
-    <div className={clsx(className, "flex max-h-1/3 mb-3 items-center")}>
+    <div className={clsx(className, "flex md:max-h-60 2xl:max-h-80 mb-3 items-center")}>
       {items.map((item, index) => {
           const imageData = findImageData(images.nodes, item)
           if(!imageData) return  <Placeholder item={item} index={index}/>
