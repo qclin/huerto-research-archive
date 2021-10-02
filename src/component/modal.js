@@ -3,6 +3,8 @@ import Modal from "react-modal";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Pill from "./pill";
 import clsx from "clsx";
+import Video from "../component/video";
+import MarkedText from "../component/markedText";
 
 const customStyles = {
   content: {
@@ -21,13 +23,17 @@ const customStyles = {
 };
 
 function PreviewModal({ preview, onClose }) {
-  const image = useMemo(() => preview && getImage(preview.imageData), [preview])
 
+  const image = useMemo(() => preview && getImage(preview.imageData), [preview])
   if(!preview) return <></>
-  const { IDENTIFIER, CATEGORY, TITLE, YEAR, MEDIA_TYPE, MEDIA} = preview.item
+  const { IDENTIFIER, CATEGORY, TITLE, YEAR, MEDIA_TYPE, MEDIA, RECIPE} = preview.item
   const topPillClass = "absolute top-2 z-10 uppercase"
 
   const medialURL = MEDIA && MEDIA[0].data.URL
+  const isVideo = MEDIA_TYPE === "Video"
+  const isRecipe = CATEGORY.includes("Recipe")
+  const isImage = preview && !isVideo
+
 
   return (
     <Modal isOpen={!!preview} onRequestClose={onClose} style={customStyles}>
@@ -35,13 +41,15 @@ function PreviewModal({ preview, onClose }) {
       {medialURL && <Pill className={clsx(topPillClass, "right-8 shadow")}>
         <a href={medialURL} target="_blank">LINK</a>
       </Pill>}
-      {preview && (
+      {isVideo && <Video URL={medialURL} />}
+      {isRecipe && <MarkedText text={RECIPE[0].data.Notes} className="max-w-screen-md p-6 bg-white"/>}
+      {isImage && (
         <figure key={`${CATEGORY}.${IDENTIFIER}`}>
           {image && <GatsbyImage image={image}
-          transformOptions={{fit: "contain"}}
-          alt={TITLE}
-          className="max-w-screen-md w-full mx-auto h-auto object-contain"
-          style={{maxHeight: "80vh"}}/>}
+            transformOptions={{fit: "contain"}} alt={TITLE}
+            className="max-w-screen-md w-full mx-auto h-auto object-contain"
+            style={{maxHeight: "80vh"}}/>}
+
           <figcaption className="flex justify-between">{TITLE},{YEAR}<span>{MEDIA_TYPE}</span></figcaption>
         </figure>
       )}

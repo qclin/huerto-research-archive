@@ -43,9 +43,15 @@ export const query = graphql`
                 data {
                   URL
                   Title
-                  IDENTIFIER
+                  Source
                 }
               }
+            RECIPE {
+              data {
+                Author
+                Notes
+              }
+            }
           }
         }
       }

@@ -19,12 +19,16 @@ const sourceAirTable = {
     tables: [
       {
         baseId: process.env.AIRTABLE_BASE_ID,
-        tableName: `BODY`,
-        tableLinks: [`MEDIA`]
+        tableName: 'BODY',
+        tableLinks: ['MEDIA',  'RECIPE']
       },
       {
         baseId: process.env.AIRTABLE_BASE_ID,
-        tableName: `MEDIA`,
+        tableName: 'MEDIA',
+      },
+      {
+        baseId: process.env.AIRTABLE_BASE_ID,
+        tableName: 'RECIPE',
       },
     ]
   }
