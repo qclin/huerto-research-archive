@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from "react"
 import chunk from "lodash/chunk";
 
-import { selectSome } from "../utils/helper";
+import { selectFew } from "../utils/helper";
 import PlotSummary from "./plotSummary";
 import PlotRow from "./plotRow";
 import PreviewModal from "./modal";
 
 function PlotView({groupedFields, images, current}) {
-  const selectedSet = useMemo(() => selectSome(groupedFields), [current]);
+  const selectedSet = useMemo(() => selectFew(groupedFields), [current]);
   const [selectedCategory, setSelectedCategory] = useState();
   const [preview, setPreview] = useState()
 

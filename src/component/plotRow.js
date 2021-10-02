@@ -11,13 +11,17 @@ function PlotRow({items, className, images, setPreview, selectedCategory}){
 
   const sizes = ["w-1/5 h-72", "w-1/4 h-60"]
   const buttonClass = "mx-2 shadow-lg focus:outline-none active:outline-none"
-  const Placeholder = ({item, index}) => (
+  const Placeholder = ({item, index}) => {
+    const isFocus=item.CATEGORY.includes(selectedCategory)
+
+    return (
     <button onClick={() => setPreview({item})}
       className={clsx(sizes[index % 2 ], buttonClass,
-      "bg-eggwash text-center justify-center items-center")}>
+        isFocus ? "bg-eggwash" : "bg-white",
+      "text-center justify-center items-center")}>
       <span>{item.TITLE}, {item.YEAR}</span>
     </button>
-  )
+  )}
 
   const RecipeCard = ({item, index}) => {
     const isFocus=item.CATEGORY.includes(selectedCategory)
@@ -38,7 +42,7 @@ function PlotRow({items, className, images, setPreview, selectedCategory}){
   )}
 
   return (
-    <div className={clsx(className, "flex md:max-h-60 2xl:max-h-80 mb-3 items-center")}>
+    <div className={clsx(className, "flex md:max-h-48 2xl:max-h-72 mb-3 items-center")}>
       {items.map((item, index) => {
           const imageData = findImageData(images.nodes, item)
           const isRecipe = item.CATEGORY.includes("Recipe") && item.RECIPE

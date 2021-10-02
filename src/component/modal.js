@@ -31,7 +31,7 @@ function PreviewModal({ preview, onClose }) {
 
   const medialURL = MEDIA && MEDIA[0].data.URL
   const isVideo = MEDIA_TYPE === "Video"
-  const isRecipe = CATEGORY.includes("Recipe")
+  const isRecipe = CATEGORY.includes("Recipe") && RECIPE
   const isImage = preview && !isVideo
 
 
