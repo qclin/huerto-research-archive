@@ -4,6 +4,7 @@ import { groupByCategory  } from "../utils/helper";
 import Layout  from "../component/layout";
 import ListView from "../component/listView";
 import PlotView from "../component/plotView";
+import Context from "../component/context";
 import Footer from "../component/footer";
 import { Corners } from "../component/corners";
 
@@ -20,6 +21,8 @@ function PlotPage({data}){
         showList ? <ListView groupedFields={groupedFields}/> :
         <PlotView groupedFields={groupedFields} images={data.images} current={current}/>
       }
+      <Context orientation="right" label="Context" payload={data.context}/>
+      <Context orientation="left" label="Glossary" payload={data.glossary}/>
       <Footer onToggleView={() => setShowList(!showList)} isList={showList} onNext={() => setCurrent(current + 1)}/>
     </Layout>
   )
@@ -69,6 +72,12 @@ export const query = graphql`
           }
         }
       }
+    }
+    context: markdownRemark(fileAbsolutePath: {regex: "/Context.md/"}) {
+      html
+    }
+    glossary: markdownRemark(fileAbsolutePath: {regex: "/Glossary.md/"}) {
+      html
     }
   }
 `
