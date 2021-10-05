@@ -18,7 +18,7 @@ function PlotPage({data}){
     <Layout>
       <Corners />
       {
-        showList ? <ListView groupedFields={groupedFields}/> :
+        showList ? <ListView groupedFields={groupedFields} images={data.images}/> :
         <PlotView groupedFields={groupedFields} images={data.images} current={current}/>
       }
       <Context orientation="right" label="Context" payload={data.context}/>
