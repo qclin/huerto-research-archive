@@ -13,7 +13,7 @@ function ListView({groupedFields, images}){
 
   return(
     <section className="flex">
-      <section className="ml-32 pb-24 max-w-screen-md">
+      <section className="ml-16 pb-24 max-w-screen-md">
       {Object.entries(groupedFields).map(([type, fields]) =>  (
         <dl key={type}>
         <dt className="bg-white rounded-full w-min whitespace-nowrap py-1 px-2 my-6">
@@ -30,12 +30,11 @@ function ListView({groupedFields, images}){
                 imageData && setSelected(imageData)
               }}
               className={clsx("w-full grid grid-flow-col auto-cols-fr text-left px-2 hover:bg-white hover:bg-opacity-25 focus:outline-none",
-              selected.Key.includes(field.IDENTIFIER) && "bg-eggwash"
+              selected?.Key?.includes(field.IDENTIFIER) && "bg-eggwash"
             )}>
-              <span>#{index+1}</span>
-              <span>{field.MEDIA_TYPE}</span>
               <span>{field.YEAR ? field.YEAR : "     "}</span>
-              <span className="col-span-3">{field.TITLE}</span>
+              <span>{field.MEDIA_TYPE}</span>
+              <span className="col-span-4">{field.TITLE}</span>
             </button>
             </dd>
         )})}
@@ -43,8 +42,8 @@ function ListView({groupedFields, images}){
       ))}
       </section>
       <div className="flex items-center fixed right-0 justify-items-center h-full">
-        <div className="relative max-w-screen-sm m-12">
-          <GatsbyImage image={image} />
+        <div className="relative max-w-prose mr-12">
+          <GatsbyImage image={image} className="shadow"/>
         </div>
       </div>
 
