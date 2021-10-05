@@ -10,7 +10,6 @@ function ListView({groupedFields, images}){
 
   const image = useMemo(() => getImage(selected), [selected]);
 
-
   return(
     <section className="flex">
       <section className="ml-16 pb-24 max-w-screen-md">
