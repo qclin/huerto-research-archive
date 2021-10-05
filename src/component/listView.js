@@ -22,7 +22,6 @@ function ListView({groupedFields, images}){
         </dt>
         {fields.map((field, index) => {
           const imageData = findImageData(images.nodes, field)
-
           return(
           <dd key={field.IDENTIFIER} className={scheme.text}>
             <button
@@ -37,7 +36,8 @@ function ListView({groupedFields, images}){
               <span className="col-span-4">{field.TITLE}</span>
             </button>
             </dd>
-        )})}
+          )
+        })}
         </dl>
       ))}
       </section>
