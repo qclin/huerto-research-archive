@@ -39,7 +39,7 @@ function PreviewModal({ preview, onClose }) {
     <Modal isOpen={!!preview} onRequestClose={onClose} style={customStyles}>
       <Pill className={clsx(topPillClass, "left-8")}>{CATEGORY.join(' - ')}</Pill>
       {medialURL && <Pill className={clsx(topPillClass, "right-8 shadow")}>
-        <a href={medialURL} target="_blank">LINK</a>
+        <a href={medialURL} target="_blank" rel="noreferrer">LINK</a>
       </Pill>}
       {isVideo && <Video URL={medialURL} />}
       {isRecipe && <MarkedText text={RECIPE[0].data.Notes} className="max-w-screen-md p-6 bg-white"/>}

@@ -7,6 +7,8 @@ import PlotView from "../component/plotView";
 import Context from "../component/context";
 import Footer from "../component/footer";
 import { Corners } from "../component/corners";
+import Background from "../component/background";
+
 
 function PlotPage({data}){
 
@@ -17,6 +19,7 @@ function PlotPage({data}){
   return (
     <Layout>
       <Corners />
+      <Background images={data.images} />
       {
         showList ? <ListView groupedFields={groupedFields} images={data.images}/> :
         <PlotView groupedFields={groupedFields} images={data.images} current={current}/>

@@ -5,11 +5,9 @@ import { getColorScheme } from "../utils/helper";
 const className = {
   left: {
     position: "left-0",
-    labelPosition: "-left-3.5"
   },
   right: {
     position: "right-0",
-    labelPosition: "-right-3.5"
   }
 }
 const Context = ({orientation, label, payload}) => {
@@ -20,16 +18,21 @@ const Context = ({orientation, label, payload}) => {
   return (
     <div className={clsx(
       open ? "max-w-screen-sm": "w-0",
-      "fixed top-0 z-50 h-screen", styles.position)}>
+      "fixed z-50 top-6", styles.position)}
+      style={{ height: 'calc(100vh - 4.5rem)'}}
+      >
       <section className={
-        clsx(open ? "visible h-screen shadow p-11" : "invisible",
+        clsx(open ? "visible shadow-inner p-11 h-full" : "invisible",
           scheme.lightBg, scheme.text)}>
         <div dangerouslySetInnerHTML={{__html: payload.html}}/>
       </section>
       <button className={
-        clsx("focus:outline-none uppercase text-base absolute top-1/2 transform -rotate-90 hover:bg-eggwash", styles.labelPosition)}
+        clsx("focus:outline-none hover:bg-eggwash w-6 absolute h-full top-0 border-t border-b",
+        styles.position, scheme.lightBg, scheme.border)}
         onClick={() => setOpen(!open)}>
-        {label}
+          <span className="uppercase text-base absolute transform -rotate-90 -left-4">
+            {label}
+          </span>
       </button>
     </div>
   )
