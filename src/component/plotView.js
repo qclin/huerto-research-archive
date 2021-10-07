@@ -16,13 +16,13 @@ function PlotView({groupedFields, images, current}) {
 
   return (
   <section
-    className="overflow-y-hidden py-4"
+    className="overflow-y-hidden"
     style={{ height: 'calc(100vh - 4.5rem)'}}>
-      <PlotSummary className="absolute mx-4" selectedSet={selectedSet}
+      <PlotSummary className="absolute m-4" selectedSet={selectedSet}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
-      <section className="max-w-screen-lg 2xl:max-w-screen-xl mx-auto h-full">
+      <section className="mx-auto h-full flex flex-col justify-center max-w-70vw 2xl:max-w-80vw">
         {groupedSet.map((list, listIndex) => (
           <PlotRow key={`row.${listIndex}`}
             items={list}

@@ -36,7 +36,7 @@ function PlotRow({items, className, images, setPreview, selectedCategory}){
   )}
 
   return (
-    <div className={clsx(className, "flex md:max-h-48 2xl:max-h-72 mb-3 items-center")}>
+    <div className={clsx(className, "flex my-4 items-center max-h-25vh 2xl:max-h-30vh")}>
       {items.map((item, index) => {
           const imageData = findImageData(images.nodes, item)
           const isRecipe = item.CATEGORY.includes("Recipe") && item.RECIPE

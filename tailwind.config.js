@@ -47,7 +47,15 @@ module.exports = {
       fontSize: {
         sm: "0.531rem",
         base: "0.75rem"
-      }
+      },
+      maxHeight: {
+        "25vh": "25vh",
+        "30vh": "30vh",
+      },
+      maxWidth: {
+        "70vw": "70vw",
+        "80vw": "80vw",
+      },
     },
   },
   variants: {
