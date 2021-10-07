@@ -28,7 +28,7 @@ const Context = ({orientation, label, payload}) => {
       </section>
       <button className={
         clsx("focus:outline-none hover:bg-eggwash w-6 absolute h-full top-0 border-t border-b",
-        styles.position, scheme.lightBg, scheme.border)}
+        styles.position, scheme.lightBg, scheme.border, scheme.text)}
         onClick={() => setOpen(!open)}>
           <span className="uppercase text-base absolute transform -rotate-90 -left-4">
             {label}

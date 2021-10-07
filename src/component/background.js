@@ -12,10 +12,10 @@ function Background({images}){
   console.log("backtround", imageSet);
 
   const positions = [
-    "top-20 -left-24",
-    "top-6 -right-12",
+    "top-20 -left-28",
+    "top-6 -right-24",
     "bottom-24 -left-24",
-    "bottom-12 -right-24",
+    "bottom-12 -right-28",
 
   ]
   return (
@@ -24,7 +24,7 @@ function Background({images}){
         imageSet.map((imageData, index) => {
           const image = getImage(imageData);
           return (
-            <div className={clsx("w-52 filter grayscale opacity-50 shadow backdrop-blur-sm drop-shadow fixed z-0", positions[index])}
+            <div className={clsx("w-52 filter grayscale opacity-50 brightness-125 shadow-md fixed z-0", positions[index])}
               style={{blur: "blur(2px)"}}
             >
               <GatsbyImage image={image} alt={imageData.Key} />
