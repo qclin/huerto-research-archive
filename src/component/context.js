@@ -24,13 +24,13 @@ const Context = ({orientation, label, payload}) => {
       <section className={
         clsx(open ? "visible shadow-inner p-11 h-full" : "invisible",
           scheme.lightBg, scheme.text)}>
-        <div dangerouslySetInnerHTML={{__html: payload.html}}/>
+        <div className="whitespace-pre-line" dangerouslySetInnerHTML={{__html: payload.html}}/>
       </section>
       <button className={
         clsx("focus:outline-none hover:bg-eggwash w-6 absolute h-full top-0 border-t border-b",
         styles.position, scheme.lightBg, scheme.border, scheme.text)}
         onClick={() => setOpen(!open)}>
-          <span className="uppercase text-base absolute transform -rotate-90 -left-4">
+          <span className="uppercase text-base absolute transform -rotate-90 -left-3.5">
             {label}
           </span>
       </button>
