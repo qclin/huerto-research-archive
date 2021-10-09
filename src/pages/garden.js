@@ -24,8 +24,8 @@ function PlotPage({data}){
         showList ? <ListView groupedFields={groupedFields} images={data.images}/> :
         <PlotView groupedFields={groupedFields} images={data.images} current={current}/>
       }
-      <Context orientation="right" label="Context" payload={data.context}/>
-      <Context orientation="left" label="Glossary" payload={data.glossary}/>
+      <Context orientation="left" label="Context" payload={data.context}/>
+      <Context orientation="right" label="Glossary" payload={data.glossary}/>
       <Footer onToggleView={() => setShowList(!showList)} isList={showList} onNext={() => setCurrent(current + 1)}/>
     </Layout>
   )
