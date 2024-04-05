@@ -18,7 +18,7 @@ function Timestamp(){
   const timeToFallEquinox = formatDistanceToNow(new Date("2021-09-22"))
 
   return (
-    <Pill className="z-20 uppercase fixed right-6 mt-10 m-3 border-r">
+    <Pill className="z-20 uppercase fixed right-6 mt-16 m-3 border-r">
       {localTimeString},  {timeToFallEquinox} sinced fall equinox
     </Pill>
 

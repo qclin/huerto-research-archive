@@ -7,7 +7,7 @@ import PlotRow from "./plotRow";
 import PreviewModal from "./modal";
 
 function PlotView({groupedFields, images, current}) {
-  const selectedSet = useMemo(() => selectFew(groupedFields), [current]);
+  const selectedSet = useMemo(() => selectFew(groupedFields), [current, groupedFields]);
   const [selectedCategory, setSelectedCategory] = useState();
   const [preview, setPreview] = useState()
 

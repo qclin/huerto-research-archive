@@ -11,12 +11,17 @@ function IndexPage(){
   return (
     <div className={clsx(scheme.lightBg, "p-6 h-screen")}>
       <Corners showBottom/>
-      <div className={clsx(scheme.border, "bg-eggwash h-full flex justify-center items-center border")}>
-        <div className="text-center">
-        <h1 className="text-5xl uppercase mb-4">Plot in Dialogue: An Archive </h1>
-        <Link className="uppercase" to="/garden">Enter the Garden</Link>
+      <Link className="uppercase" to="/garden">
+        
+      <div className={clsx(scheme.border, "flex justify-center items-center border h-full")}>
+      <div className="bg-bloodOrange opacity-95 blur-md h-full w-screen z-0"></div>
+        <div className="text-center z-10 absolute">
+          <h1 className="text-5xl uppercase mb-4">Plot in Dialogues
+          <br/>
+          <i>Archive</i></h1>
         </div>
       </div>
+      </Link>
     </div>
   )
 }

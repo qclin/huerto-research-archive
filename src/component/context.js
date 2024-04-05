@@ -17,12 +17,12 @@ const Context = ({orientation, label, payload}) => {
 
   return (
     <div className={clsx(
-      open ? "max-w-screen-sm": "w-0",
-      "fixed z-50 top-6", styles.position)}
+      open ? "max-w-xs": "w-0",
+      "fixed z-50 top-12", styles.position)}
       style={{ height: 'calc(100vh - 4.5rem)'}}
       >
       <section className={
-        clsx(open ? "visible shadow-inner p-11 h-full" : "invisible",
+        clsx(open ? "visible shadow-inner p-11 h-full overflow-y-scroll" : "invisible",
           scheme.lightBg, scheme.text)}>
         <div className="whitespace-pre-line" dangerouslySetInnerHTML={{__html: payload.html}}/>
       </section>

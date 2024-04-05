@@ -15,7 +15,7 @@ function Layout ({
       <Seo title={seoTitle} />
     </header>
       <Timestamp/>
-      <main className={clsx(scheme.lightBg, "p-6")}>
+      <main className={clsx(scheme.lightBg, "p-6 pt-12")}>
         <section className={clsx(scheme.bg, scheme.border, "border")}>
           {children}
         </section>

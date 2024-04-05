@@ -5,7 +5,7 @@ import Layout  from "../component/layout";
 import ListView from "../component/listView";
 import PlotView from "../component/plotView";
 import Context from "../component/context";
-import Footer from "../component/footer";
+import Header from "../component/Header";
 import { Corners } from "../component/corners";
 import Background from "../component/background";
 
@@ -20,13 +20,14 @@ function PlotPage({data}){
     <Layout>
       <Corners />
       <Background images={data.images} />
+      <Header onToggleView={() => setShowList(!showList)} isList={showList} onNext={() => setCurrent(current + 1)}/>
       {
         showList ? <ListView groupedFields={groupedFields} images={data.images}/> :
         <PlotView groupedFields={groupedFields} images={data.images} current={current}/>
       }
       <Context orientation="left" label="Context" payload={data.context}/>
       <Context orientation="right" label="Glossary" payload={data.glossary}/>
-      <Footer onToggleView={() => setShowList(!showList)} isList={showList} onNext={() => setCurrent(current + 1)}/>
+      
     </Layout>
   )
 }

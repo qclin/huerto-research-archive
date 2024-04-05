@@ -9,11 +9,10 @@ const chance = new Chance();
 function Background({images}){
 
   const imageSet = chance.pickset(images.nodes, 4);
-  console.log("backtround", imageSet);
 
   const positions = [
     "top-20 -left-28",
-    "top-6 -right-24",
+    "top-12 -right-24",
     "bottom-24 -left-24",
     "bottom-12 -right-28",
 
