@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: "Porpora-Regular";
   src: url("./fonts/Porpora-Regular.ttf");
 }
@@ -14,4 +14,24 @@ body{
 
 h1{
   font-family: "SangBleuBP-Light", serif;
+} */
+
+
+@font-face {
+  font-family: "CMU Serif";
+  src: url("./fonts/cmunrm-webfont.woff"), url("./fonts/cmunrm-webfont.woff2");
+}
+
+@font-face {
+  font-family: "Brezel-Grotesk";
+  src: url("./fonts/brezelgroteskmg-regular-webfont.woff");
+}
+
+
+body{
+  font-family: "Brezel-Grotesk", "san-serif";
+}
+
+h1{
+  font-family: "CMU Serif", serif;
 }
