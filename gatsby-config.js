@@ -12,7 +12,7 @@ const sourceS3 = {
 }
 
 const sourceAirTable = {
-  resolve: `gatsby-source-airtable`,
+  resolve: "gatsby-source-airtable",
   options: {
     apiKey: process.env.AIRTABLE_API_KEY,
     concurrency: 5,
@@ -74,9 +74,9 @@ module.exports = {
       __key: "pages",
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `markdown`,
+        name: "markdown",
         path: `${__dirname}/src/files/`
       }
     },

@@ -1,5 +1,8 @@
 module.exports = {
-  purge: [],
+  content: [
+    './public/**/*.html',
+    './src/**/*.{js,jsx,ts,tsx}',
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -8,6 +11,11 @@ module.exports = {
         eggwash: "#fffbe8",
         melone:" #cfffe3CC",
         yellow:"#ede291",
+
+        wax: '#E7DF9B',
+        bloodOrange: '#FF4A1C', 
+        eggplant:'#D3C0D2', 
+        sage:'#5AA784',
         time:{
           dawn:{
             bg: {
@@ -41,8 +49,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ["Porpora-Regular", "sans-serif"],
-        head: ["SangBleuBP-Light", "sans-serif"],
+        sans: ["Brezel-Grotesk", "sans-serif"],
+        head: ["CMU Serif", "serif"],
       },
       fontSize: {
         sm: "0.531rem",
