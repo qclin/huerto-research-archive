@@ -31,4 +31,12 @@ export const bgByCategory = {
   governance: "#5AA784",
 };
 
+export const bgColorCategory = {
+  people: "bg-wax",
+  cultivation: "bg-eggplant",
+  "cultivation-practices": "bg-eggplant",
+  territory: "bg-bloodOrange",
+  governance: "bg-sage",
+}
+
 export default colorScheme;

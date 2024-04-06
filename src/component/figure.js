@@ -17,7 +17,7 @@ function Figure({
         <GatsbyImage image={image} alt={item.TITLE} className="shadow-md" />
         <figcaption className="sr-only">{item.TITLE}</figcaption>
         {isFocus && (
-          <Pill isOverlay className={`bg-[${highlightColor}]`}>
+          <Pill isOverlay className={highlightColor}>
             {item.MEDIA_TYPE}
           </Pill>
         )}

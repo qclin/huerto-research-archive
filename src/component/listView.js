@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React, { useState, useMemo } from "react";
 import { getColorScheme, findImageData } from "../utils/helper";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { bgByCategory } from "../utils/colors";
+import { bgColorCategory } from "../utils/colors";
 
 function ListView({ groupedFields, images }) {
   const scheme = getColorScheme();
@@ -18,8 +18,8 @@ function ListView({ groupedFields, images }) {
             <dt
               className={clsx(
                 "rounded-full w-min whitespace-nowrap py-1 px-2 my-6",
-                bgByCategory[type.toLowerCase()]
-                  ? `bg-[${bgByCategory[type.toLowerCase()]}]`
+                bgColorCategory[type.toLowerCase()]
+                  ? bgColorCategory[type.toLowerCase()]
                   : "bg-white",
               )}
             >

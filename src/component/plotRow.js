@@ -6,7 +6,7 @@ import MarkedText from "./markedText";
 import Pill from "./pill";
 
 import { findImageData } from "../utils/helper";
-import { bgByCategory } from "../utils/colors";
+import { bgColorCategory } from "../utils/colors";
 
 function PlotRow({ items, className, images, setPreview, selectedCategory }) {
   const sizes = ["w-1/5 h-72", "w-1/4 h-60"];
@@ -45,7 +45,7 @@ function PlotRow({ items, className, images, setPreview, selectedCategory }) {
           className="p-6 text-sm text-left leading-4"
         />
         {isFocus && (
-          <Pill isOverlay className={`bg-[${highlightColor}]`}>
+          <Pill isOverlay className={highlightColor}>
             {item.TITLE}
           </Pill>
         )}
@@ -68,7 +68,7 @@ function PlotRow({ items, className, images, setPreview, selectedCategory }) {
           item,
           isFocus: item.CATEGORY.includes(selectedCategory),
           highlightColor:
-            selectedCategory && bgByCategory[selectedCategory.toLowerCase()],
+            selectedCategory && bgColorCategory[selectedCategory.toLowerCase()],
         };
 
         if (isRecipe)
