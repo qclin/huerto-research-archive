@@ -20,7 +20,7 @@ function PlotRow({ items, className, images, setPreview, selectedCategory }) {
           sizes[index % 2],
           buttonClass,
           isFocus ? "bg-eggwash" : "bg-white",
-          "text-center justify-center items-center"
+          "text-center justify-center items-center",
         )}
       >
         <span>
@@ -37,7 +37,7 @@ function PlotRow({ items, className, images, setPreview, selectedCategory }) {
         className={clsx(
           sizes[index % 2],
           isFocus ? "bg-eggwash" : "bg-white",
-          "relative overflow-y-hidden overflow-ellipsis"
+          "relative overflow-y-hidden overflow-ellipsis",
         )}
       >
         <MarkedText
@@ -55,27 +55,33 @@ function PlotRow({ items, className, images, setPreview, selectedCategory }) {
 
   return (
     <div
-      className={clsx(className,
-        "flex my-4 items-center max-h-25vh 2xl:max-h-30vh"
+      className={clsx(
+        className,
+        "flex my-4 items-center max-h-25vh 2xl:max-h-30vh",
       )}
     >
       {items.map((item, index) => {
         const imageData = findImageData(images.nodes, item);
         const isRecipe = item.CATEGORY.includes("Recipe") && item.RECIPE;
         const sharedProps = {
-          index, item, 
-          isFocus: item.CATEGORY.includes(selectedCategory), 
-          highlightColor: selectedCategory && bgByCategory[selectedCategory.toLowerCase()]
-        }
-        
-        if (isRecipe) return (<RecipeCard key={`recipe-${index}`} {...sharedProps}/> );
-        if (!imageData) return (<Placeholder key={`placeholder-${index}`} {...sharedProps}/>);
+          index,
+          item,
+          isFocus: item.CATEGORY.includes(selectedCategory),
+          highlightColor:
+            selectedCategory && bgByCategory[selectedCategory.toLowerCase()],
+        };
+
+        if (isRecipe)
+          return <RecipeCard key={`recipe-${index}`} {...sharedProps} />;
+        if (!imageData)
+          return <Placeholder key={`placeholder-${index}`} {...sharedProps} />;
 
         const { height, width } = imageData?.childImageSharp?.original;
         const aspectRatio = width / height;
 
         return (
-          <Figure {...sharedProps}
+          <Figure
+            {...sharedProps}
             key={`image-${item.IDENTIFIER}`}
             imageData={imageData}
             onSelect={() => setPreview({ item, imageData })}

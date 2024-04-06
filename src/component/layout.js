@@ -4,24 +4,21 @@ import clsx from "clsx";
 import Timestamp from "./timestamp";
 import { getColorScheme } from "../utils/helper";
 
-function Layout ({
-  children,
-  seoTitle = "Huerto Research Archive"
-}){
-  const scheme = getColorScheme()
+function Layout({ children, seoTitle = "Huerto Research Archive" }) {
+  const scheme = getColorScheme();
   return (
     <>
-    <header>
-      <Seo title={seoTitle} />
-    </header>
-      <Timestamp/>
+      <header>
+        <Seo title={seoTitle} />
+      </header>
+      <Timestamp />
       <main className={clsx(scheme.lightBg, "p-6 pt-12")}>
         <section className={clsx(scheme.bg, scheme.border, "border")}>
           {children}
         </section>
       </main>
     </>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

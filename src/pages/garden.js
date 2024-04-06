@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import { graphql } from "gatsby"
-import { groupByCategory  } from "../utils/helper";
-import Layout  from "../component/layout";
+import React, { useState } from "react";
+import { graphql } from "gatsby";
+import { groupByCategory } from "../utils/helper";
+import Layout from "../component/layout";
 import ListView from "../component/listView";
 import PlotView from "../component/plotView";
 import Context from "../component/context";
@@ -9,34 +9,40 @@ import Header from "../component/Header";
 import { Corners } from "../component/corners";
 import Background from "../component/background";
 
-
-function PlotPage({data}){
-
-  const groupedFields = groupByCategory(data.projects.edges)
-  const [showList, setShowList] = useState(false)
-  const [current, setCurrent] = useState(0)
+function PlotPage({ data }) {
+  const groupedFields = groupByCategory(data.projects.edges);
+  const [showList, setShowList] = useState(false);
+  const [current, setCurrent] = useState(0);
 
   return (
     <Layout>
       <Corners />
       <Background images={data.images} />
-      <Header onToggleView={() => setShowList(!showList)} isList={showList} onNext={() => setCurrent(current + 1)}/>
-      {
-        showList ? <ListView groupedFields={groupedFields} images={data.images}/> :
-        <PlotView groupedFields={groupedFields} images={data.images} current={current}/>
-      }
-      <Context orientation="left" label="Context" payload={data.context}/>
-      <Context orientation="right" label="Glossary" payload={data.glossary}/>
-      
+      <Header
+        onToggleView={() => setShowList(!showList)}
+        isList={showList}
+        onNext={() => setCurrent(current + 1)}
+      />
+      {showList ? (
+        <ListView groupedFields={groupedFields} images={data.images} />
+      ) : (
+        <PlotView
+          groupedFields={groupedFields}
+          images={data.images}
+          current={current}
+        />
+      )}
+      <Context orientation="left" label="Context" payload={data.context} />
+      <Context orientation="right" label="Glossary" payload={data.glossary} />
     </Layout>
-  )
+  );
 }
 
-export default PlotPage
+export default PlotPage;
 
 export const query = graphql`
   query {
-    projects: allAirtable(filter: {table: {eq: "BODY"}}) {
+    projects: allAirtable(filter: { table: { eq: "BODY" } }) {
       edges {
         node {
           id
@@ -47,12 +53,12 @@ export const query = graphql`
             TITLE
             YEAR
             MEDIA {
-                data {
-                  URL
-                  Title
-                  Source
-                }
+              data {
+                URL
+                Title
+                Source
               }
+            }
             RECIPE {
               data {
                 Author
@@ -67,9 +73,7 @@ export const query = graphql`
       nodes {
         Key
         childImageSharp {
-          gatsbyImageData(
-            placeholder: BLURRED
-          )
+          gatsbyImageData(placeholder: BLURRED)
           original {
             height
             width
@@ -77,11 +81,11 @@ export const query = graphql`
         }
       }
     }
-    context: markdownRemark(fileAbsolutePath: {regex: "/Context.md/"}) {
+    context: markdownRemark(fileAbsolutePath: { regex: "/Context.md/" }) {
       html
     }
-    glossary: markdownRemark(fileAbsolutePath: {regex: "/Glossary.md/"}) {
+    glossary: markdownRemark(fileAbsolutePath: { regex: "/Glossary.md/" }) {
       html
     }
   }
-`
+`;

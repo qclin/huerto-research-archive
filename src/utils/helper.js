@@ -1,86 +1,83 @@
-import Chance from "chance"
+import Chance from "chance";
 import { getHours } from "date-fns";
-import {omit, flatten, shuffle, inRange} from "lodash";
+import { omit, flatten, shuffle, inRange } from "lodash";
 import colorScheme from "./colors";
 
 const chance = new Chance();
 
-export function groupByCategory(edges){
+export function groupByCategory(edges) {
+  const categoryList = {};
 
-  const categoryList = {}
+  edges.forEach((edge) => {
+    const { data } = edge.node;
 
-  edges.forEach(edge => {
-
-    const {data} = edge.node
-
-    data.CATEGORY?.forEach(category => {
-      if(categoryList[category]){
-        categoryList[category].push(data)
-      }else{
-        categoryList[category] = [data]
+    data.CATEGORY?.forEach((category) => {
+      if (categoryList[category]) {
+        categoryList[category].push(data);
+      } else {
+        categoryList[category] = [data];
       }
-    })
+    });
   });
 
-  return categoryList
+  return categoryList;
 }
 
+export function selectSome(categoryList) {
+  const livingKey = "Living";
+  const livingSet = categoryList[livingKey];
+  const theRestSet = flatten(
+    Object.values(omit(categoryList, livingKey)),
+  ).filter((obj) => !obj.CATEGORY.includes(livingKey));
 
+  const living3 = chance.pickset(livingSet, 3);
 
-export function selectSome(categoryList){
-  const livingKey = "Living"
-  const livingSet = categoryList[livingKey]
-  const theRestSet = flatten(Object.values(omit(categoryList, livingKey))).filter((obj) => !obj.CATEGORY.includes(livingKey))
+  const rest5 = chance.pickset(shuffle(theRestSet), 6);
 
-  const living3 = chance.pickset(livingSet, 3)
-
-  const rest5 = chance.pickset(shuffle(theRestSet), 6)
-
-  return  shuffle([...living3, ...rest5])
+  return shuffle([...living3, ...rest5]);
 }
 
-export function selectFew(categoryList){
-  const selected = []
+export function selectFew(categoryList) {
+  const selected = [];
   Object.entries(categoryList).forEach(([key, list]) => {
-
-    if(key === "Living"){
-      selected.push(...chance.pickset(list, 3))
-    }else if(["Recipe", "Zones-of-Practice"].includes(key)){
-      selected.push(chance.pickone(list))
-    }else {
-      selected.push(...chance.pickset(list, 2))
+    if (key === "Living") {
+      selected.push(...chance.pickset(list, 3));
+    } else if (["Recipe", "Zones-of-Practice"].includes(key)) {
+      selected.push(chance.pickone(list));
+    } else {
+      selected.push(...chance.pickset(list, 2));
     }
-  })
-  return selected
+  });
+  return selected;
 }
 
-export function countOccurences(selectedSet){
+export function countOccurences(selectedSet) {
   return selectedSet.reduce((r, a) => {
     a.CATEGORY.forEach((category) => {
       r[category] = (r[category] || 0) + 1;
-    })
+    });
     return r;
   }, {});
 }
 
-export function findImageData(imageNodes, item){
-  return imageNodes.find(node => node.Key.includes(item.IDENTIFIER))
+export function findImageData(imageNodes, item) {
+  return imageNodes.find((node) => node.Key.includes(item.IDENTIFIER));
 }
 
-export function getColorScheme(){
+export function getColorScheme() {
   const now = new Date();
-  const timenow = getHours(now)
+  const timenow = getHours(now);
 
   let timeOfDay;
-  if(inRange(timenow, 0, 6)){
-    timeOfDay = "dawn"
-  }else if(inRange(timenow, 6, 12)){
-    timeOfDay = "morning"
-  }else if(inRange(timenow, 12, 18)){
-    timeOfDay = "afternoon"
-  }else if(inRange(timenow, 18, 24)) {
-    timeOfDay = "night"
+  if (inRange(timenow, 0, 6)) {
+    timeOfDay = "dawn";
+  } else if (inRange(timenow, 6, 12)) {
+    timeOfDay = "morning";
+  } else if (inRange(timenow, 12, 18)) {
+    timeOfDay = "afternoon";
+  } else if (inRange(timenow, 18, 24)) {
+    timeOfDay = "night";
   }
 
-  return colorScheme[timeOfDay]
+  return colorScheme[timeOfDay];
 }

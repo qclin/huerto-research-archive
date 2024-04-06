@@ -1,4 +1,4 @@
-require("dotenv").config()
+require("dotenv").config();
 
 const sourceS3 = {
   resolve: "gatsby-source-s3-image",
@@ -9,7 +9,7 @@ const sourceS3 = {
     region: process.env.S3_REGION,
     protocol: process.env.S3_PROTOCOL,
   },
-}
+};
 
 const sourceAirTable = {
   resolve: "gatsby-source-airtable",
@@ -19,20 +19,20 @@ const sourceAirTable = {
     tables: [
       {
         baseId: process.env.AIRTABLE_BASE_ID,
-        tableName: 'BODY',
-        tableLinks: ['MEDIA',  'RECIPE']
+        tableName: "BODY",
+        tableLinks: ["MEDIA", "RECIPE"],
       },
       {
         baseId: process.env.AIRTABLE_BASE_ID,
-        tableName: 'MEDIA',
+        tableName: "MEDIA",
       },
       {
         baseId: process.env.AIRTABLE_BASE_ID,
-        tableName: 'RECIPE',
+        tableName: "RECIPE",
       },
-    ]
-  }
-}
+    ],
+  },
+};
 
 module.exports = {
   siteMetadata: {
@@ -43,8 +43,7 @@ module.exports = {
     authorLink: "https://theholding.page/",
     openGraph: {
       title: "",
-      description:
-        "",
+      description: "",
       url: "",
       image: "",
     },
@@ -77,8 +76,8 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "markdown",
-        path: `${__dirname}/src/files/`
-      }
+        path: `${__dirname}/src/files/`,
+      },
     },
     {
       resolve: "gatsby-plugin-react-svg",

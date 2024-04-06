@@ -3,7 +3,7 @@ const colorScheme = {
     bg: "bg-time-dawn-bg",
     lightBg: "bg-time-dawn-bg-light",
     border: "border-time-dawn-border",
-    text: "text-time-dawn-text"
+    text: "text-time-dawn-text",
   },
   morning: {
     bg: "bg-time-morning-bg",
@@ -20,15 +20,15 @@ const colorScheme = {
     lightBg: "bg-time-night-bg-light",
     border: "border-time-night-border",
     text: "text-white",
-  }
-}
+  },
+};
 
 export const bgByCategory = {
-  people: '#E7DF9B', 
-  cultivation: '#D3C0D2', 
-  'cultivation-practices': '#D3C0D2', 
-  territory: '#FF4A1C',
-  governance: '#5AA784'
-}
+  people: "#E7DF9B",
+  cultivation: "#D3C0D2",
+  "cultivation-practices": "#D3C0D2",
+  territory: "#FF4A1C",
+  governance: "#5AA784",
+};
 
-export default colorScheme
+export default colorScheme;
