@@ -23,5 +23,12 @@ const colorScheme = {
   }
 }
 
+export const bgByCategory = {
+  people: '#E7DF9B', 
+  cultivation: '#D3C0D2', 
+  'cultivation-practices': '#D3C0D2', 
+  territory: '#FF4A1C',
+  governance: '#5AA784'
+}
 
 export default colorScheme

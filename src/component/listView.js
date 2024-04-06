@@ -2,6 +2,7 @@ import clsx from "clsx"
 import React, {useState, useMemo} from "react"
 import { getColorScheme, findImageData } from "../utils/helper";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { bgByCategory } from "../utils/colors";
 
 function ListView({groupedFields, images}){
 
@@ -15,11 +16,13 @@ function ListView({groupedFields, images}){
       <section className="ml-16 pb-24 max-w-screen-md">
       {Object.entries(groupedFields).map(([type, fields]) =>  (
         <dl key={type}>
-        <dt className="bg-white rounded-full w-min whitespace-nowrap py-1 px-2 my-6">
+        <dt className={clsx("rounded-full w-min whitespace-nowrap py-1 px-2 my-6",
+          bgByCategory[type.toLowerCase()] ? `bg-[${bgByCategory[type.toLowerCase()]}]`:"bg-white"
+        )}>
           {type}
           <span className="pl-2">({fields.length})</span>
         </dt>
-        {fields.map((field, index) => {
+        {fields.map((field) => {
           const imageData = findImageData(images.nodes, field)
           return(
           <dd key={field.IDENTIFIER} className={scheme.text}>

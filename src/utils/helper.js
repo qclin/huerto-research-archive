@@ -42,6 +42,7 @@ export function selectSome(categoryList){
 export function selectFew(categoryList){
   const selected = []
   Object.entries(categoryList).forEach(([key, list]) => {
+
     if(key === "Living"){
       selected.push(...chance.pickset(list, 3))
     }else if(["Recipe", "Zones-of-Practice"].includes(key)){
@@ -55,7 +56,7 @@ export function selectFew(categoryList){
 
 export function countOccurences(selectedSet){
   return selectedSet.reduce((r, a) => {
-    a.CATEGORY.map((category) => {
+    a.CATEGORY.forEach((category) => {
       r[category] = (r[category] || 0) + 1;
     })
     return r;
