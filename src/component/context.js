@@ -18,7 +18,7 @@ const Context = ({ orientation, label, payload }) => {
   return (
     <div
       className={clsx(
-        open ? "max-w-xs" : "w-0",
+        open ? "md:max-w-xs w-full" : "w-0",
         "fixed z-50 top-12",
         styles.position,
       )}

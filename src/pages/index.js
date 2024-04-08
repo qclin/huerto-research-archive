@@ -20,7 +20,7 @@ function IndexPage() {
         >
           <div className="bg-bloodOrange opacity-95 blur-md h-full w-screen z-0"></div>
           <div className="text-center z-10 absolute">
-            <h1 className="text-7xl uppercase mb-4">
+            <h1 className="text-5xl md:text-7xl uppercase mb-4">
               Plot Dialogues
               <br />
               <i>Archive</i>
