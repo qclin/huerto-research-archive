@@ -11,7 +11,7 @@ function IndexPage() {
   return (
     <div className={clsx(scheme.lightBg, "p-6 h-screen")}>
       <Corners showBottom />
-      <Link className="uppercase" to="/garden">
+      <Link to="/garden">
         <div
           className={clsx(
             scheme.border,
@@ -25,6 +25,7 @@ function IndexPage() {
               <br />
               <i>Archive</i>
             </h1>
+            <span className="md:hidden">Better viewed on desktop</span>
           </div>
         </div>
       </Link>
