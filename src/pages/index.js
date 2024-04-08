@@ -25,7 +25,7 @@ function IndexPage() {
               <br />
               <i>Archive</i>
             </h1>
-            <span className="md:hidden">Better viewed on desktop</span>
+            <span className="md:hidden">Better view on desktop</span>
           </div>
         </div>
       </Link>
