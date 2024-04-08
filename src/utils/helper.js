@@ -1,6 +1,6 @@
 import Chance from "chance";
-import { getHours } from "date-fns";
-import { omit, flatten, shuffle, inRange } from "lodash";
+import getHours from "date-fns/getHours";
+import inRange from "lodash/inRange";
 import colorScheme from "./colors";
 
 const chance = new Chance();
@@ -23,29 +23,13 @@ export function groupByCategory(edges) {
   return categoryList;
 }
 
-export function selectSome(categoryList) {
-  const livingKey = "Living";
-  const livingSet = categoryList[livingKey];
-  const theRestSet = flatten(
-    Object.values(omit(categoryList, livingKey)),
-  ).filter((obj) => !obj.CATEGORY.includes(livingKey));
-
-  const living3 = chance.pickset(livingSet, 3);
-
-  const rest5 = chance.pickset(shuffle(theRestSet), 6);
-
-  return shuffle([...living3, ...rest5]);
-}
-
 export function selectFew(categoryList) {
   const selected = [];
   Object.entries(categoryList).forEach(([key, list]) => {
-    if (key === "Living") {
-      selected.push(...chance.pickset(list, 3));
-    } else if (["Recipe", "Zones-of-Practice"].includes(key)) {
+    if (key === "People") {
       selected.push(chance.pickone(list));
     } else {
-      selected.push(...chance.pickset(list, 2));
+      selected.push(...chance.pickset(list, 3));
     }
   });
   return selected;

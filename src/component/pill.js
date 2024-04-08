@@ -9,9 +9,10 @@ function Pill({ className, isOverlay, children, ...rest }) {
     <span
       {...rest}
       className={clsx(
-        "text-base bg-white rounded-full px-4 py-2",
         className,
+        "text-base rounded-full px-4 py-2",
         isOverlay && labelStyle,
+        className.includes('bg-') ? "" : "bg-white"
       )}
     >
       {children}
