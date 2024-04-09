@@ -19,11 +19,10 @@ function PlotSummary({
         const categoryColor = bgColorCategory[key.toLowerCase()];
 
         return (
-          <Pill
-            key={key}
+          <Pill key={key}
             className={clsx(
-              isSelected && "border-white cursor",
-              "border-2 block w-min whitespace-nowrap uppercase mb-2",
+              isSelected && "cursor-pointer",
+              "block w-min whitespace-nowrap uppercase mb-2",
               categoryColor,
             )}
             onMouseEnter={() => setSelectedCategory(key)}

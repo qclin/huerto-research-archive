@@ -11,9 +11,9 @@ const customStyle = (category) => ({
     left: "50%",
     right: "auto",
     bottom: "auto",
-    marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     border: "none",
+    padding: "10px", 
     backgroundColor: bgByCategory[category] ?? "#ede291F2",
   },
   overlay: {
@@ -31,7 +31,7 @@ function PreviewModal({ preview, onClose }) {
     preview.item;
   const medialURL = MEDIA && MEDIA[0].data.URL;
   const isVideo = MEDIA_TYPE === "Video";
-  const isRecipe = CATEGORY.includes("Recipe") && RECIPE;
+  const isRecipe = CATEGORY.includes("People") && RECIPE;
   const isImage = preview && !isVideo;
 
   const RenderLink = () =>
@@ -56,7 +56,7 @@ function PreviewModal({ preview, onClose }) {
       {isRecipe && (
         <MarkedText
           text={RECIPE[0].data.Notes}
-          className="max-w-screen-md p-6 bg-white"
+          className="md:max-w-screen-md p-6 bg-white max-h-[80vh] overflow-y-scroll mb-2 whitespace-pre-line"
         />
       )}
       {isImage ? (
@@ -66,7 +66,7 @@ function PreviewModal({ preview, onClose }) {
               image={image}
               objectFit="contain"
               alt={TITLE}
-              className="max-w-screen-md w-full mx-auto h-auto !object-contain"
+              className="max-w-screen-md w-full mx-auto h-auto !object-contain mb-1"
               style={{ maxHeight: "80vh" }}
             />
           )}

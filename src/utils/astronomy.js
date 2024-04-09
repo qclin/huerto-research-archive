@@ -28,10 +28,10 @@ export function getNextEventCountdown() {
   for (let i = 0; i < eventDates.length; i++) {
     const event = eventDates[i];
     if (isSameDay(today, event.date)) {
-      return `Today is ${event.name}.`;
+      return `Today is ${event.name}`;
     } else if (today < event.date) {
       const diffDays = differenceInDays(event.date, today);
-      return `${diffDays} days until ${event.name}.`;
+      return `${diffDays} days until ${event.name}`;
     }
   }
 
@@ -46,7 +46,7 @@ export function getLocalTime() {
   const today = new Date();
 
   const datetimeFormat = Intl.DateTimeFormat().resolvedOptions();
-  const localTime = utcToZonedTime(new Date(), datetimeFormat.timeZone);
+  const localTime = utcToZonedTime(today, datetimeFormat.timeZone);
 
   return format(localTime, "HH:mm zzz", {
     timeZone: datetimeFormat.timeZoneName,

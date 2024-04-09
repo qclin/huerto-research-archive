@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import chunk from "lodash/chunk";
 
-import { selectFew } from "../utils/helper";
+import { selectFew, splitArrayIntoChunks } from "../utils/helper";
 import PlotSummary from "./plotSummary";
 import PlotRow from "./plotRow";
 import PreviewModal from "./modal";
@@ -14,8 +14,10 @@ function PlotView({ groupedFields, images, current }) {
   const [selectedCategory, setSelectedCategory] = useState();
   const [preview, setPreview] = useState();
 
-  const groupedSet = chunk(selectedSet, 3);
-  const rowAlign = ["justify-end items-end", "justify-center", "justify-start"];
+  const sizes = [3, 4, 3];
+  const groupedSet = splitArrayIntoChunks(selectedSet, sizes);
+
+  const rowAlign = ["justify-end", "justify-center", "justify-start"];
 
   return (
     <section
@@ -43,7 +45,7 @@ function PlotView({ groupedFields, images, current }) {
       <PreviewModal
         preview={preview}
         onClose={() => setPreview(null)}
-      ></PreviewModal>
+      />
     </section>
   );
 }

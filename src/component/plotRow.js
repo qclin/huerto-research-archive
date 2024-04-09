@@ -62,7 +62,7 @@ function PlotRow({ items, className, images, setPreview, selectedCategory }) {
     >
       {items.map((item, index) => {
         const imageData = findImageData(images.nodes, item);
-        const isRecipe = item.CATEGORY.includes("Recipe") && item.RECIPE;
+        const isRecipe = item.CATEGORY.includes("People") && item.RECIPE;
         const sharedProps = {
           index,
           item,

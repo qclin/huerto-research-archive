@@ -65,3 +65,18 @@ export function getColorScheme() {
 
   return colorScheme[timeOfDay];
 }
+
+export function splitArrayIntoChunks(array, sizes) {
+  let result = [];
+  let currentIndex = 0;
+
+  for (let size of sizes) {
+    // Extract the chunk and push to result
+    const chunk = array.slice(currentIndex, currentIndex + size);
+    result.push(chunk);
+    // Update currentIndex for next iteration
+    currentIndex += size;
+  }
+
+  return result;
+}

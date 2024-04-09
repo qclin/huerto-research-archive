@@ -12,7 +12,7 @@ function Header({ isList, onToggleView, onNext }) {
       className={clsx(
         scheme.lightBg,
         scheme.text,
-        "w-screen fixed left-0 top-0 grid md:grid-cols-5  uppercase items-center text-xs text-center",
+        "w-screen fixed left-0 top-0 grid md:grid-cols-5  uppercase items-center text-xs text-center"
       )}
     >
       <button
@@ -21,11 +21,11 @@ function Header({ isList, onToggleView, onNext }) {
       >
         VIEW AS {isList ? "plot" : "list"}
       </button>
-      <div className="md:col-span-3">plot in dialogue: An Archive</div>
+      <div className="md:col-span-3">Plot Dialogues: Archive</div>
       <button
         className={clsx(
           sideButtonClasses,
-          "border-l flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed",
+          "border-l flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed"
         )}
         onClick={onNext}
         disabled={isList}
