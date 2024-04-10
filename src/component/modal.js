@@ -14,6 +14,7 @@ const customStyle = (category) => ({
     transform: "translate(-50%, -50%)",
     border: "none",
     padding: "10px", 
+    width: "fit-content",
     backgroundColor: bgByCategory[category] ?? "#ede291F2",
   },
   overlay: {
